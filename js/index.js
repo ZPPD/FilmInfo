@@ -34,6 +34,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     searchFunction(searchInput);
     // MDBConfig();
+    
 });
 
 // search Function
@@ -49,10 +50,11 @@ function showSearchResult(movies){
     const searchResultsOutput = document.querySelector('.searchResults');
     searchResultsOutput.innerHTML = '';
     //create an h1
+    const main = document.querySelector('main');
     const header = document.createElement('h1');
     header.className = 'searchHeader';
     header.innerHTML = `Search Results for ${searchInput}`;
-    searchResultsOutput.appendChild(header);
+    main.insertBefore(header, searchResultsOutput);
 
     //loop through the results
     movies.forEach(movie => {
@@ -65,8 +67,8 @@ function showSearchResult(movies){
         <div class='grid-movie'>
             <div class='card-movie'>
                 <a class='movie-link' href='#'>
-                    <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput}'>
-                    <h2>${movie.title}</h2>
+                    <img class='searchMovie-img' src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput}'>
+                    <h2 class='searchMovie-title'>${movie.title}</h2>
                 </a>
             </div>
         </div>
