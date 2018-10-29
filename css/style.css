@@ -9,23 +9,26 @@ body{
 .navbar{
     background-color: #232323;
     margin: 0;
-    padding: 1.8rem;
+    padding: 1.9rem;
     position: fixed;
     top: 0;
     z-index: 10;
-    width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
 }
-.brand{
+.brand, .discover{
+    padding: 0 1rem;
     display: block;
     text-decoration: none;
-    float: right;
     color: #ed6f5b;
 }
 
-
+/* #searchForm{
+    padding: 0.5rem;
+} */
 .search-input{
     padding: 0.8rem;
     margin-right:0;
@@ -89,4 +92,42 @@ main{
 .portfolio{
     text-decoration: none;
     color: #ed6f5b;
+}
+
+
+/* media queries */
+
+/* tablets */
+@media (max-width: 980px){
+    main{
+        margin: 150px 20px;
+    }
+    .search-input{
+        width: 250px;
+    }
+}
+
+/* tablets and medium desktop desktop */
+@media (max-width: 1113px){
+    .navbar{
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    #searchForm{
+        margin: 0 auto;
+    }
+    .footer-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* smart phones */
+@media (max-width: 580px){
+    .footer{
+        padding: 7rem 7rem;
+    }
+    .brand, .discover{
+        padding: 0.3rem 1rem;
+    }
 }
