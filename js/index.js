@@ -81,7 +81,7 @@ function showSearchResult(movies){
         if(movie.media_type === 'movie'){
         grid.innerHTML = `
             <div class='card-movie'>
-                <a class='movie-link' href='#'>
+                <a onClick='movieSelected("${movie.id}","${movie.media_type}")' class='movie-link' href='#'>
                     <img class='searchMovie-img' src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput.value}'>
                     <h2 class='searchMovie-title'>${movie.title}</h2>
                     <h3 class='media-type'>${movie.media_type}</h3>
@@ -90,7 +90,7 @@ function showSearchResult(movies){
         `;} else if(movie.media_type === "tv"){
             grid.innerHTML = `
             <div class='card-movie'>
-                <a class='movie-link' href='#'>
+                <a onClick='movieSelected("${movie.id}","${movie.media_type}")' class='movie-link' href='#'>
                     <img class='searchMovie-img' src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput.value}'>
                     <h2 class='searchMovie-title'>${movie.name}</h2>
                     <h3 class='media-type'>${movie.media_type}</h3>
@@ -124,6 +124,33 @@ function showAlert(message) {
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
 
-//   To-Do
-// style the alert
+// select a movie and get details
+function movieSelected(id,type){
+    sessionStorage.setItem('movieId', id);
+    sessionStorage.setItem('movieType', type);
+    window.location = 'movie.html';
+    return false;
+}
+
+// //get Movie is called when movie.html opens
+// function getMovie(){
+//     let movieId = sessionStorage.getItem('movieId');
+//     let movieType = sessionStorage.getItem('movieType');
+//     console.log(movieId,movieType);
+
+//     fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}?api_key=${apiKey}&language=en-US`)
+//     .then(res => res.json())
+//     .then(data => showMovieDetails(data))
+//     .catch(err => console.log(err));   
+// }
+
+// function showMovieDetails(detail){
+//     output = `
+//         <header class='details-header' style="background-image: ${detail.backdrop_path}">
+//         <h1>${detail.original_title}</h1>
+//         <p>${detail.status} | ${detail.original_language}</p>
+//         <p>${detail.genres[0].name} | ${detail.genres[1].name}</p>
+//         </header>
+//     `;
+// }
 

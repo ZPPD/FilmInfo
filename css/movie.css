@@ -1,0 +1,60 @@
+/* header styles for movie details */
+*{
+    margin: 0;
+    padding: 0;
+}
+.details-header{
+    top: 0;
+    left: 0;
+    /* background: linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    background-color: #485461;
+    /* background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); */
+}
+
+.details-header::before{
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+    left: 0;
+    background-image:linear-gradient(0deg, rgb(0, 0, 0) 1%, rgba(0, 0, 0, 0.45) 82%);
+    opacity: 0.8;
+}
+
+.details-title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5rem;
+    color: #e5e5e5;
+}
+
+.details-title p{
+    color: #b7b7b7;
+    text-transform: uppercase;
+    padding: 0.2rem;
+}
+
+/* main */
+    .main-detail{
+        margin: 0 auto;
+        max-width: 70%;
+        padding: 4rem;
+    }
+/* summary */
+    .summary-detail{
+        color: #e5e5e5;
+    }
+    .summary-detail h2{
+        font-weight: 500;
+        padding: 1rem 0;
+    }
+    .summary-detail p{
+        letter-spacing: 0.8px;
+    }
