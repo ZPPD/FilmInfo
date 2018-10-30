@@ -113,6 +113,16 @@ main{
     grid-template-columns: repeat(5,1fr);
 }
 
+/* alert */
+.alert{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
 /* footer */
 
 .footer{

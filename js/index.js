@@ -126,4 +126,4 @@ function showAlert(message) {
 
 //   To-Do
 // style the alert
-// remove h1 on submit
+
