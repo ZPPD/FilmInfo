@@ -31,16 +31,16 @@ const form = document.querySelector('#searchForm');
 //     console.log(config);
 // event Listener
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    searchFunction(searchInput);
+    e.preventDefault(); 
     // MDBConfig();
-    
+
     // validation
     if(!searchInput.value){
         showAlert('Please enter a search word');
         return;
     }
-    
+    // run search function if search word exists
+    searchFunction(searchInput);
 });
 
 // search Function
@@ -55,13 +55,20 @@ function searchFunction(){
 function showSearchResult(movies){
     const searchResultsOutput = document.querySelector('.searchResults');
     searchResultsOutput.innerHTML = '';
-    
-    //create an h1
-    const main = document.querySelector('.main');
+    //create movie div for the grid
+    const movieDiv = document.createElement('div');
+    movieDiv.className = 'moviediv';
+
+    //create an h1  
     const header = document.createElement('h1');
     header.className = 'searchHeader';
     header.innerHTML = `Search Results for ${searchInput.value}`;
-    main.insertBefore(header, searchResultsOutput);
+    searchResultsOutput.appendChild(header);
+    // create hr
+    const hr = document.createElement('hr');
+    hr.className = 'search-divider';
+    searchResultsOutput.insertBefore(hr,header.nextSibling);
+    //clear the input field
     searchInput.value = '';
 
     //loop through the results
@@ -69,21 +76,31 @@ function showSearchResult(movies){
         // console.log(movie);
         // MDBConfig();
         
-        const movieDiv = document.createElement('div');
-        movieDiv.className = 'moviediv';
-        movieDiv.innerHTML = `
-        <div class='grid-movie'>
+        const grid = document.createElement('div');
+        grid.className = 'grid-movie';
+        if(movie.media_type === 'movie'){
+        grid.innerHTML = `
             <div class='card-movie'>
                 <a class='movie-link' href='#'>
                     <img class='searchMovie-img' src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput.value}'>
                     <h2 class='searchMovie-title'>${movie.title}</h2>
+                    <h3 class='media-type'>${movie.media_type}</h3>
                 </a>
             </div>
-        </div>
+        `;} else if(movie.media_type === "tv"){
+            grid.innerHTML = `
+            <div class='card-movie'>
+                <a class='movie-link' href='#'>
+                    <img class='searchMovie-img' src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt='${searchInput.value}'>
+                    <h2 class='searchMovie-title'>${movie.name}</h2>
+                    <h3 class='media-type'>${movie.media_type}</h3>
+                </a>
+            </div>
         `;
+        }
+        movieDiv.appendChild(grid);
         searchResultsOutput.appendChild(movieDiv);
     });
-
 
 }
 
@@ -97,10 +114,11 @@ function showAlert(message) {
     div.appendChild(document.createTextNode(message));
     //get main
     const main = document.querySelector('.main');
-    //get weather
-    const searchHeader = document.querySelector('.searchHeader');
-    //insert before destination in container
-    main.insertBefore(div, searchHeader);
+    //get header
+    // const searchHeader = document.querySelector('.searchHeader');
+    const searchResultsOutput = document.querySelector('.searchResults');
+    //insert before header in main
+    main.insertBefore(div, searchResultsOutput);
   
     //time out
     setTimeout(() => document.querySelector('.alert').remove(), 3000);

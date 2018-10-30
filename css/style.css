@@ -26,9 +26,11 @@ body{
     color: #ed6f5b;
 }
 
-/* #searchForm{
-    padding: 0.5rem;
-} */
+#searchForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .search-input{
     padding: 0.8rem;
     margin-right:0;
@@ -58,13 +60,21 @@ main{
 /* search result output */
 .searchHeader{
     text-align: center;
-    margin: 5rem;
-    margin-top: 20rem;
+    margin-top: 8rem;
     color: #e5e5e5;
     text-transform: uppercase;
     font-size: 1.8rem;
     font-weight: 500;
     letter-spacing: .2rem;
+}
+.search-divider{
+    margin-bottom: 5rem;
+    width: 100px;
+    color: #ed6f5b;
+}
+
+.movie-link{
+    text-decoration: none;
 }
 
 /* images from search result */
@@ -80,17 +90,27 @@ main{
 /* movie names from search result */
 .searchMovie-title{
     color: #e5e5e5;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 1.1rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.media-type{
+    color: #b7b7b7;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 0 0.5rem;
 }
 /* card */
-.car-movie{
-    
+.card-movie{
+    margin: 2.2rem 0.3rem;
 }
 /* grid movie */
-.searchResults{
+.moviediv{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(5,1fr);
 }
 
 /* footer */
