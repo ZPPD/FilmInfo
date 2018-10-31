@@ -53,6 +53,7 @@ function searchFunction(){
 }
 //Output the results
 function showSearchResult(movies){
+    //get searchResultsOutput
     const searchResultsOutput = document.querySelector('.searchResults');
     searchResultsOutput.innerHTML = '';
     //create movie div for the grid
@@ -76,8 +77,10 @@ function showSearchResult(movies){
         // console.log(movie);
         // MDBConfig();
         
+        //create grid div
         const grid = document.createElement('div');
         grid.className = 'grid-movie';
+        //validate the type and fill in the grid div
         if(movie.media_type === 'movie'){
         grid.innerHTML = `
             <div class='card-movie'>
@@ -98,6 +101,7 @@ function showSearchResult(movies){
             </div>
         `;
         }
+        //append grid to movieDiv, and movieDiv to searchResultsOutput
         movieDiv.appendChild(grid);
         searchResultsOutput.appendChild(movieDiv);
     });

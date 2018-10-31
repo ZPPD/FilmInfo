@@ -19,12 +19,17 @@ function showMovieDetails(detail){
     const movieDetails = document.querySelector('.movie-details');
     const details = document.createElement('div');
     details.className = 'details-movie-output';
+
+    let movieType = sessionStorage.getItem('movieType');
+    
+    if(movieType === 'movie'){
      details.innerHTML = `
         <header class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${detail.backdrop_path}')">
+        <section class='back-arrow'></section>
         <section class='details-title'>
             <h1>${detail.original_title}</h1>
             <p>${detail.status} | ${detail.original_language}</p>
-            <p>${detail.genres[0].name} | ${detail.genres[1].name}</p>
+            <p>${detail.genres[0].name}</p>
         </section>
         </header>
         <main class='main-detail'>
@@ -33,16 +38,71 @@ function showMovieDetails(detail){
             <p>${detail.overview}</p>
             </section>
         </main>
+    `;} else if(movieType === 'tv'){
+        details.innerHTML = `
+        <header class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${detail.backdrop_path}')">
+        <section class='back-arrow'></section>
+        <section class='details-title'>
+            <h1>${detail.name}</h1>
+            <p>${detail.status} | ${detail.original_language}</p>
+            <p>${detail.genres[0].name} | ${detail.number_of_seasons} Seasons</p>
+        </section>
+        </header>
+        <main class='main-detail'>
+            <section class='summary-detail'>
+                <h2>Summary</h2>
+                <p>${detail.overview}</p>
+            </section>
+        </main>
     `;
+    }
 
     movieDetails.appendChild(details);
 }
 
 //get cast
 function getCast(){
+    let movieId = sessionStorage.getItem('movieId');
+    let movieType = sessionStorage.getItem('movieType');
      //fetching cast and crew for movie 
     fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}/credits?api_key=${apiKey}`)
     .then(res => res.json())
-    .then(data => showCast(data))
+    .then(data => showCast(data.cast))
     .catch(err => console.log(err));
+}
+
+function showCast(cast){
+    //make actors div
+    const actors = document.createElement('div');
+    actors.className = 'actors'; 
+    //get main
+    const main = document.querySelector('.main-detail');
+    //get summary
+    const summary = document.querySelector('.summary-detail');
+     //create an h2  
+     const header = document.createElement('h2');
+     header.className = 'filmCast';
+     header.innerHTML = `Cast`;
+     main.insertBefore(header,summary.nextSibling);
+    //loop through cast
+    cast.forEach(person => {
+        
+        console.log(person);
+       
+        //make gridActors div
+        const gridActors = document.createElement('div');
+        gridActors.className = 'actor-grid';
+        // //make cards
+        // const actorCard = document.createElement('div');
+        // actorCard.className = 'actor-card';
+        //fill in actors div 
+        gridActors.innerHTML = `
+            <div class='actor-card'>
+                <img class='cast-img' src='https://image.tmdb.org/t/p/original${person.profile_path}' alt="Film's Cast">
+                <h3 class='cast-name'>${person.name} as ${person.character}</h3> 
+            </div>       
+    `;
+        actors.appendChild(gridActors);  
+        main.appendChild(actors);
+    });       
 }

@@ -27,11 +27,24 @@
     opacity: 0.8;
 }
 
+.back-arrow{
+    cursor: pointer;
+    display: inline-block;
+    border: solid #fff;
+    border-width: 0 7px 7px 0;  
+    padding: 3px;
+    top: 20%;
+    transform: rotate(135deg);
+    position: absolute;
+    padding: 0.8rem;
+    margin-left: 7rem;
+}
+
 .details-title{
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 5rem;
+    padding: 7rem;
     color: #e5e5e5;
 }
 
@@ -57,4 +70,36 @@
     }
     .summary-detail p{
         letter-spacing: 0.8px;
+        line-height: 1.5;
     }
+
+/* cast */
+.filmCast{
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    color: #e5e5e5;
+}
+.cast-img{
+    width: 150px;
+    height: auto;
+    border-radius: 5px;    
+}
+
+.actor-card{
+    margin: 2.2rem 1rem;
+    opacity: 0.8;
+}
+.actor-card:hover{
+    opacity: 1;
+}
+.actors{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: space-between;
+}
+.cast-name{
+    color: #e5e5e5;
+    font-weight: 500;
+}
