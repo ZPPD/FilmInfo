@@ -64,13 +64,16 @@ function showMovieDetails(detail){
 function getCast(){
     let movieId = sessionStorage.getItem('movieId');
     let movieType = sessionStorage.getItem('movieType');
-     //fetching cast and crew for movie 
-    fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}/credits?api_key=${apiKey}`)
-    .then(res => res.json())
-    .then(data => showCast(data.cast))
-    .catch(err => console.log(err));
-}
 
+    if(movieType === 'movie' || movieType === 'tv'){
+     //fetching cast and crew for movie 
+        fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}/credits?api_key=${apiKey}`)
+        .then(res => res.json())
+        .then(data => showCast(data.cast))
+        .catch(err => console.log(err));
+    }
+}
+//show Movie cast
 function showCast(cast){
     //make actors div
     const actors = document.createElement('div');
@@ -92,9 +95,7 @@ function showCast(cast){
         //make gridActors div
         const gridActors = document.createElement('div');
         gridActors.className = 'actor-grid';
-        // //make cards
-        // const actorCard = document.createElement('div');
-        // actorCard.className = 'actor-card';
+        
         //fill in actors div 
         gridActors.innerHTML = `
             <div class='actor-card'>
@@ -104,5 +105,53 @@ function showCast(cast){
     `;
         actors.appendChild(gridActors);  
         main.appendChild(actors);
+    });       
+}
+
+// get Trailer
+function getTrailer(){
+    let movieId = sessionStorage.getItem('movieId');
+    let movieType = sessionStorage.getItem('movieType');
+
+    if(movieType === 'movie' || movieType === 'tv'){
+     //fetching cast and crew for movie 
+        fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}/videos?api_key=${apiKey}`)
+        .then(res => res.json())
+        .then(data => showTrailers(data.results))
+        .catch(err => console.log(err));
+    }
+}
+//show Movie cast
+function showTrailers(trailers){
+    //make trailers div
+    const trailersDiv = document.createElement('div');
+    trailersDiv.className = 'trailors'; 
+    //get main
+    const main = document.querySelector('.main-detail');
+    //get actors
+    const actors = document.querySelector('.actors');
+     //create an h2  
+     const header = document.createElement('h2');
+     header.className = 'filmTrailer';
+     header.innerHTML = `Trailer`;
+     main.insertBefore(header,actors.nextSibling);
+    //loop through cast
+    trailers.forEach(trailer => {
+        
+        console.log(trailer);
+       
+        //make gridActors div
+        const gridTrailer = document.createElement('div');
+        gridTrailer.className = 'trailer-grid';
+        
+        //fill in actors div 
+        gridTrailer.innerHTML = `
+            <div class='trailer-card'>
+                <iframe  width="420" height="315" src="https://www.youtube.com/embed/${trailer.key}" frameborder='0' allowfullscreen></iframe>
+                 <button class='playBtn'></button>
+            </div>       
+    `;
+        trailersDiv.appendChild(gridTrailer);  
+        main.appendChild(trailersDiv);
     });       
 }
