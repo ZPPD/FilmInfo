@@ -74,7 +74,7 @@
     }
 
 /* cast and trailers */
-.filmCast, .filmTrailer{
+.filmCast, .filmTrailer, .filmCredits{
     font-weight: 500;
     margin-top: 1rem;
     padding: 1rem 0;

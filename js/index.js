@@ -136,25 +136,3 @@ function movieSelected(id,type){
     return false;
 }
 
-// //get Movie is called when movie.html opens
-// function getMovie(){
-//     let movieId = sessionStorage.getItem('movieId');
-//     let movieType = sessionStorage.getItem('movieType');
-//     console.log(movieId,movieType);
-
-//     fetch(`https://api.themoviedb.org/3/${movieType}/${movieId}?api_key=${apiKey}&language=en-US`)
-//     .then(res => res.json())
-//     .then(data => showMovieDetails(data))
-//     .catch(err => console.log(err));   
-// }
-
-// function showMovieDetails(detail){
-//     output = `
-//         <header class='details-header' style="background-image: ${detail.backdrop_path}">
-//         <h1>${detail.original_title}</h1>
-//         <p>${detail.status} | ${detail.original_language}</p>
-//         <p>${detail.genres[0].name} | ${detail.genres[1].name}</p>
-//         </header>
-//     `;
-// }
-

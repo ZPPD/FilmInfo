@@ -30,3 +30,26 @@
     font-weight: 500;
     font-size: 1.3rem;
 }
+
+/* credit movies and tv for person */
+.credit-flex{
+    display: flex;
+    flex-direction: row;
+    margin: 4rem 0;
+    padding: 2rem;
+    background: #333;
+    color: #e5e5e5;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.credit-img{
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+    padding-right: 1rem;
+}
+
+.credit-character{
+    padding: 1rem 0;
+    font-weight: 500;
+}
