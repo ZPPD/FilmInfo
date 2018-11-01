@@ -38,6 +38,43 @@ function showPersonDetails(person){
     personDetails.appendChild(personDiv);
 }
 
+function getPhotos(){
+    const personId = sessionStorage.getItem('personId');
+
+    //getting movie and tv credits for person
+    fetch(`https://api.themoviedb.org/3/person/${personId}/images?api_key=${apiKey}`)
+    .then(res => res.json())
+    .then(data => showPhotos(data.profiles))
+    .catch(err => console.log(err));   
+}
+
+function showPhotos(photos){
+    //make photo section
+    const photoSection = document.createElement('section');
+    photoSection.className = 'photoSection'; 
+    //get main
+    const main = document.querySelector('.main-person');
+    //get biography
+    const bio = document.querySelector('.bio');
+     //create an h2  
+     const header = document.createElement('h2');
+     header.className = 'filmPhotos';
+     header.innerHTML = `Photos`;
+     main.insertBefore(header,bio.nextSibling);
+
+    photos.forEach(photo => {
+        //make photo div
+        const photoCard = document.createElement('div');
+        photoCard.className = 'photo-card';
+
+        photoCard.innerHTML = `
+        <img class='photo-image' src='https://image.tmdb.org/t/p/original${photo.file_path}'>
+        `;
+        photoSection.appendChild(photoCard);
+        main.appendChild(photoSection);
+    })
+}
+
 function getCredits(){
     const personId = sessionStorage.getItem('personId');
 
@@ -54,13 +91,13 @@ function showPersonCredits(credits){
     creditsDiv.className = 'creditsDiv'; 
     //get main
     const main = document.querySelector('.main-person');
-    //get biography
-    const bio = document.querySelector('.bio');
+    //get photo
+    const photoSection = document.querySelector('.photoSection');
      //create an h2  
      const header = document.createElement('h2');
      header.className = 'filmCredits';
      header.innerHTML = `Filmography`;
-     main.insertBefore(header,bio.nextSibling);
+     main.insertBefore(header,photoSection.nextSibling);
 
     //loop through credits
     credits.forEach(credit => {
@@ -71,24 +108,26 @@ function showPersonCredits(credits){
         if(credit.media_type === 'movie'){
         //fill in actors div 
         cardCredit.innerHTML = `
-        <div class='credit-flex' onClick='movieSelected(${credit.id},${credit.media_type})'>
+        <div class='credit-flex' onClick='movieSelected("${credit.id}","${credit.media_type}")'>
         <div>
         <img class='credit-img' src='https://image.tmdb.org/t/p/original${credit.poster_path}' alt='Filmography'> 
         </div> 
         <div>
-        <h2 class='credit-title'>${credit.original_title}</h2> 
+        <h2 class='credit-title'>${credit.original_title}</h2>
+        <p>${credit.release_date}</p>
         <h3 class='credit-character'>${credit.character}</h3>  
         <p>${credit.overview}</p>
         </div>
         </div>
     `;} else if(credit.media_type === 'tv'){
         cardCredit.innerHTML = `
-        <div class='credit-flex' onClick='movieSelected(${credit.id},${credit.media_type})'>
+        <div class='credit-flex' onClick='movieSelected("${credit.id}","${credit.media_type}")'>
         <div>
         <img class='credit-img' src='https://image.tmdb.org/t/p/original${credit.poster_path}' alt='Filmography'>
         </div>
         <div>  
         <h2 class='credit-title'>${credit.name}</h2> 
+        <p>${credit.first_air_date}</p>
         <h3 class='credit-character'>${credit.character}</h3>  
         <p>${credit.overview}</p>
         </div>
@@ -101,8 +140,8 @@ function showPersonCredits(credits){
 
 // select a movie and get details
 function movieSelected(id,type){
-    sessionStorage.setItem('personId', id);
-    sessionStorage.setItem('personType', type);
+    sessionStorage.setItem('movieId', id);
+    sessionStorage.setItem('movieType', type);
     window.location = 'movie.html';
     return false;
 }

@@ -29,6 +29,21 @@
     color: #e5e5e5;
     font-weight: 500;
     font-size: 1.3rem;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+}
+/* photos */
+.photoSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.photo-image{
+    height: 300px;
+    width: auto;
+    opacity: 0.9;
 }
 
 /* credit movies and tv for person */
@@ -37,16 +52,17 @@
     flex-direction: row;
     margin: 4rem 0;
     padding: 2rem;
-    background: #333;
+    background: #2d2d2d;
     color: #e5e5e5;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 
 .credit-img{
     width: 150px;
     height: auto;
     border-radius: 5px;
-    padding-right: 1rem;
+    margin-right: 1rem;
 }
 
 .credit-character{
