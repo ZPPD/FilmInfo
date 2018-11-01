@@ -73,8 +73,8 @@
         line-height: 1.5;
     }
 
-/* cast */
-.filmCast{
+/* cast and trailers */
+.filmCast, .filmTrailer{
     font-weight: 500;
     margin-top: 1rem;
     padding: 1rem 0;
@@ -83,23 +83,31 @@
 .cast-img{
     width: 150px;
     height: auto;
-    border-radius: 5px;    
+    border-radius: 5px; 
+      
 }
 
 .actor-card{
     margin: 2.2rem 1rem;
     opacity: 0.8;
+    cursor: pointer; 
 }
 .actor-card:hover{
     opacity: 1;
 }
-.actors{
+.actors, .trailers{
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .cast-name{
     color: #e5e5e5;
     font-weight: 500;
 }
+
+.trailer-grid{
+    margin: 2rem;
+}
+
+

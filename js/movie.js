@@ -125,7 +125,7 @@ function getTrailer(){
 function showTrailers(trailers){
     //make trailers div
     const trailersDiv = document.createElement('div');
-    trailersDiv.className = 'trailors'; 
+    trailersDiv.className = 'trailers'; 
     //get main
     const main = document.querySelector('.main-detail');
     //get actors
@@ -147,8 +147,7 @@ function showTrailers(trailers){
         //fill in actors div 
         gridTrailer.innerHTML = `
             <div class='trailer-card'>
-                <iframe  width="420" height="315" src="https://www.youtube.com/embed/${trailer.key}" frameborder='0' allowfullscreen></iframe>
-                 <button class='playBtn'></button>
+                <iframe  width="420" height="300" src="https://www.youtube.com/embed/${trailer.key}" frameborder='0' allowfullscreen></iframe>
             </div>       
     `;
         trailersDiv.appendChild(gridTrailer);  
