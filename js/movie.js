@@ -4,8 +4,8 @@ const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
 
 //get Movie is called when movie.html opens
 function getMovie(){
-    let movieId = sessionStorage.getItem('movieId');
-    let movieType = sessionStorage.getItem('movieType');
+    const movieId = sessionStorage.getItem('movieId');
+    const movieType = sessionStorage.getItem('movieType');
     console.log(movieId,movieType);
 
     //getting general info
@@ -20,7 +20,7 @@ function showMovieDetails(detail){
     const details = document.createElement('div');
     details.className = 'details-movie-output';
 
-    let movieType = sessionStorage.getItem('movieType');
+    const movieType = sessionStorage.getItem('movieType');
     
     if(movieType === 'movie'){
      details.innerHTML = `
@@ -98,7 +98,7 @@ function showCast(cast){
         
         //fill in actors div 
         gridActors.innerHTML = `
-            <div class='actor-card'>
+            <div class='actor-card' onClick="personSelected(${person.id})">
                 <img class='cast-img' src='https://image.tmdb.org/t/p/original${person.profile_path}' alt="Film's Cast">
                 <h3 class='cast-name'>${person.name} as ${person.character}</h3> 
             </div>       
@@ -153,4 +153,11 @@ function showTrailers(trailers){
         trailersDiv.appendChild(gridTrailer);  
         main.appendChild(trailersDiv);
     });       
+}
+
+// select a person and get details
+function personSelected(id){
+    sessionStorage.setItem('personId', id);
+    window.location = 'person.html';
+    return false;
 }
