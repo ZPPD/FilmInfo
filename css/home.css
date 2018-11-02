@@ -1,0 +1,30 @@
+/* home page */
+
+/* now playing */
+.playing-img{
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+.playing-grid{
+    opacity: 0.8;
+    margin: 2rem 0;
+    cursor: pointer;
+}
+
+.nowPlaying{
+    color: #e5e5e5;
+    margin: 2rem 0;
+}
+.playingMovie-name{
+    color: #b7b7b7;
+    font-size: 1.2rem;
+}
+
+.playing-grid:hover{
+    opacity: 1;
+}
+.playing{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
