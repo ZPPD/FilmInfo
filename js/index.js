@@ -53,6 +53,9 @@ function searchFunction(){
 }
 //Output the results
 function showSearchResult(movies){
+    const homePage = document.querySelector('.home-page');
+    homePage.style.display = 'none';
+
     //get searchResultsOutput
     const searchResultsOutput = document.querySelector('.searchResults');
     searchResultsOutput.innerHTML = '';

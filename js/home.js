@@ -21,6 +21,7 @@ function showHomePage(movies){
       header.className = 'nowPlaying';
       header.innerHTML = `Now Playing`;
       homePage.appendChild(header);
+
      //loop through cast
      movies.forEach(movie => {
          
@@ -29,10 +30,10 @@ function showHomePage(movies){
          //make gridMovie div
          const gridMovie = document.createElement('div');
          gridMovie.className = 'playing-grid';
-         
+         const type = 'movie';
          //fill in actors div 
          gridMovie.innerHTML = `
-             <div class='playing-card' onClick="movieSelected('${movie.id}')">
+             <div class='playing-card' onClick='movieSelected("${movie.id}", "${type}")'>
                  <img class='playing-img' src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt="Now Playing movies">
                  <h3 class='playingMovie-name'>${movie.title}</h3> 
              </div>       
@@ -42,9 +43,10 @@ function showHomePage(movies){
      });       
 }
 // select a movie and get details
-function movieSelected(id,type){
+function movieSelected(id, type){
     sessionStorage.setItem('movieId', id);
-    sessionStorage.setItem('movieType',type);
+    sessionStorage.setItem('movieType', type);
+    console.log(type);
     window.location = 'movie.html';
     return false;
 }

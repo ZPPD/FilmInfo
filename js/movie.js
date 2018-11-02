@@ -6,6 +6,7 @@ const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
 function getMovie(){
     const movieId = sessionStorage.getItem('movieId');
     const movieType = sessionStorage.getItem('movieType');
+    console.log(typeof(movieId), typeof(movieType));
     console.log(movieId,movieType);
 
     //getting general info
