@@ -10,23 +10,31 @@ const table = function(){
     </div>
     <div class='grid-table-bottom'>
         <div class='table-flex'>
-            <button name='getHome' type='button'>Now Playing</button>
-            <button name='getHome' type='button'>Popular</button>
-            <button name='getHome' type='button'>Upcoming</button>
-            <button name='getHome' type='button'>Latest</button>
+            <button name='getHome' type='button' class='btns active'>Now Playing</button>
+            <button name='getHome' type='button' >Popular</button>
+            <button name='getHome' type='button' >Upcoming</button>
+            <button name='getHome' type='button' >Latest</button>
             <button name='getHome' type='button'>Top Rated</button>
         </div>
         <div class='table-flex'>
-            <button name='getHome' type='button'>Airing Today</button>
-            <button name='getHome' type='button'>Popular</button>
-            <button name='getHome' type='button'>On The Air</button>
-            <button name='getHome' type='button'>Latest</button>
-            <button name='getHome' type='button'>Top Rated</button>
+            <button name='getHome' type='button' >Airing Today</button>
+            <button name='getHome' type='button' >Popular</button>
+            <button name='getHome' type='button' >On The Air</button>
+            <button name='getHome' type='button' >Latest</button>
+            <button name='getHome' type='button' >Top Rated</button>
         </div>
     </div>
     `; 
     homePage.appendChild(table);
+    //toggle class active
+    const btns = document.querySelectorAll('button');
+
+    btns.forEach(btn => btn.addEventListener('click', function(e){
+        btns.forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+  }));
 }
+
 
 
 //display movies grid
