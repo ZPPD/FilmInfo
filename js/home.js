@@ -1,3 +1,35 @@
+//display table
+const table = function(){
+    const homePage = document.querySelector('.home-page');
+    const table = document.createElement('section');
+    table.className = 'table';
+    table.innerHTML = `
+    <div class='grid-table-top'>
+        <h2>Movies</h2>
+        <h2>TV</h2>
+    </div>
+    <div class='grid-table-bottom'>
+        <div class='table-flex'>
+            <button name='getHome' type='button'>Now Playing</button>
+            <button name='getHome' type='button'>Popular</button>
+            <button name='getHome' type='button'>Upcoming</button>
+            <button name='getHome' type='button'>Latest</button>
+            <button name='getHome' type='button'>Top Rated</button>
+        </div>
+        <div class='table-flex'>
+            <button name='getHome' type='button'>Airing Today</button>
+            <button name='getHome' type='button'>Popular</button>
+            <button name='getHome' type='button'>On The Air</button>
+            <button name='getHome' type='button'>Latest</button>
+            <button name='getHome' type='button'>Top Rated</button>
+        </div>
+    </div>
+    `; 
+    homePage.appendChild(table);
+}
+
+
+//display movies grid
 const displayHome = function(){
     // API
     const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
@@ -57,5 +89,6 @@ document.addEventListener("DOMContentLoaded", init);
 //init app
 function init() { 
   //init homepage
+  new table();
   new displayHome();
 }
