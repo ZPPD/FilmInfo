@@ -1,6 +1,6 @@
 //display table
 const table = function(){
-    const homePage = document.querySelector('.home-page');
+    const homeTable = document.querySelector('.home-table');
     const table = document.createElement('section');
     table.className = 'table';
     table.innerHTML = `
@@ -25,7 +25,7 @@ const table = function(){
         </div>
     </div>
     `; 
-    homePage.appendChild(table);
+    homeTable.appendChild(table);
     //toggle class active
     const btns = document.querySelectorAll('button');
 
@@ -106,10 +106,10 @@ const fetchInfo = function(){
         const playing = document.createElement('div');
         playing.className = 'playing'; 
         
+        
         //get home page
-        const homePage = document.querySelector('.home-page');   
-        
-        
+        const homeResults = document.querySelector('.home-results'); 
+        homeResults.innerHTML = '';
         //loop through movies
         movies.forEach(movie => {
             console.log(movie);
@@ -119,14 +119,14 @@ const fetchInfo = function(){
             const gridMovie = document.createElement('div');
             gridMovie.className = 'playing-grid';
             
-            //fill in homepage div 
-            if(type === 'movie' && e.target.classList.contains('active')){
+            //fill in gridMovie div 
+            if(type === 'movie' || e.target.classList.contains('active')){
                 gridMovie.innerHTML = `
                 <div class='playing-card' onClick='movieSelected("${movie.id}", "${type}")'>
                     <img class='playing-img' src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt="Now Playing movies">
                     <h3 class='playingMovie-name'>${movie.title}</h3> 
                 </div>       
-        `;}else if(type === 'tv' && e.target.classList.contains('active')){
+        `;}else if(type === 'tv' || e.target.classList.contains('active')){
             gridMovie.innerHTML = `
             <div class='playing-card' onClick='movieSelected("${movie.id}", "${type}")'>
                 <img class='playing-img' src='https://image.tmdb.org/t/p/original${movie.poster_path}' alt="Now Playing movies">
@@ -134,10 +134,9 @@ const fetchInfo = function(){
             </div>       
         `;
             }
-            playing.innerHTML = '';
             
             playing.appendChild(gridMovie);  
-            homePage.appendChild(playing);
+            homeResults.appendChild(playing);
         });       
    }
 }     

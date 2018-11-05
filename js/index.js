@@ -53,6 +53,7 @@ function searchFunction(){
 }
 //Output the results
 function showSearchResult(movies){
+    //hide home page
     const homePage = document.querySelector('.home-page');
     homePage.style.display = 'none';
 
