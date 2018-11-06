@@ -35,7 +35,7 @@ const table = function(){
 
 
 
-//display movies grid
+//display movies grid Trending
 const displayHome = function(){
     // API
     const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
@@ -81,8 +81,10 @@ function showHomePage(movies){
 }
 //fetch info from buttons
 const fetchInfo = function(){
+    let page = 1;
     const btns = document.querySelectorAll('.btns');
     btns.forEach(btn => btn.addEventListener('click',fetchBtnData));
+    
     function fetchBtnData (e){
         const type = e.target.dataset.type;
         console.log(type);
@@ -92,7 +94,7 @@ const fetchInfo = function(){
         // API
         const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
 
-            fetch(`https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=1`)
+            fetch(`https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=${page}`)
             .then(res => res.json())
             .then(data => showDataHome(data.results))
             .catch(err => console.log(err));
@@ -103,8 +105,9 @@ const fetchInfo = function(){
         const playing = document.createElement('div');
         playing.className = 'playing'; 
         
+       
         
-        //get home page
+        //get home page and clear previous display
         const homeResults = document.querySelector('.home-results'); 
         homeResults.innerHTML = '';
         //loop through movies
@@ -135,7 +138,7 @@ const fetchInfo = function(){
             playing.appendChild(gridMovie);  
             homeResults.appendChild(playing);
         });       
-   }
+   }   
 }     
 }
 
