@@ -1,6 +1,9 @@
 // API
  const apiKey = 'b952b137c8f2368ab0069e05f47729a0';
 
+ //page
+let page = 1;
+
 // DOM selectors
 const searchInput = document.querySelector('.search-input');
 const form = document.querySelector('#searchForm');
@@ -41,12 +44,15 @@ form.addEventListener('submit', (e) => {
     }
     // run search function if search word exists
     searchFunction(searchInput);
+
+    //show page buttons
+    showPageButtons();
 });
 
 // search Function
 function searchFunction(){
-    console.log(searchInput.value);
-    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${searchInput.value}&page=1&include_adult=false`)
+    //console.log(searchInput.value);
+    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${searchInput.value}&page=${page}&include_adult=false`)
     .then(res => res.json())
     .then(data => showSearchResult(data.results))
     .catch(err => console.log(err));
@@ -73,8 +79,6 @@ function showSearchResult(movies){
     const hr = document.createElement('hr');
     hr.className = 'search-divider';
     searchResultsOutput.insertBefore(hr,header.nextSibling);
-    //clear the input field
-    searchInput.value = '';
 
     //loop through the results
     movies.forEach(movie => {
@@ -105,11 +109,46 @@ function showSearchResult(movies){
             </div>
         `;
         }
+    
         //append grid to movieDiv, and movieDiv to searchResultsOutput
         movieDiv.appendChild(grid);
         searchResultsOutput.appendChild(movieDiv);
     });
+   
 
+} 
+function showPageButtons(){
+//get main
+    const main = document.querySelector('.main');
+//get searchResultsOutput
+const searchResultsOutput = document.querySelector('.searchResults');
+
+    //pagination
+    const pagination = document.createElement('div');
+    pagination.className = 'pagination';
+    pagination.innerHTML = `
+    <button class='prev-page page' data-state='-'><i class="fas fa-arrow-circle-left"></i> 
+    Previous</button>
+    <button class='next-page page' data-state='+'>Next <i class="fas fa-arrow-circle-right"></i></button>
+    `;
+    main.insertBefore(pagination, searchResultsOutput.nextSibling);
+
+    const event = document.querySelectorAll('.page');
+    event.forEach(button => button.addEventListener('click', change));
+//handle Pagination 
+function change(e){
+    if(page === 1 && e.target.dataset.state === '-'){
+        page = 1;
+        console.log(page);
+    } else if(e.target.dataset.state === '+'){
+        page ++;
+        console.log(page);
+    } else if(e.target.dataset.state === '-'){
+        page --;
+        console.log(page);
+    }
+    searchFunction(searchInput);
+}
 }
 
 // alert message

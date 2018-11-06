@@ -62,7 +62,7 @@ function showHomePage(movies){
      //loop through movies
      movies.forEach(movie => {
          
-         console.log(movie);
+         //console.log(movie);
         
          //make gridMovie div
          const gridMovie = document.createElement('div');
