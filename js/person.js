@@ -21,7 +21,6 @@ function showPersonDetails(person){
 
     personDiv.innerHTML = `
     <header class='details-person-header'>
-        <section class='back-arrow'></section>
         <section class='details-title'>
             <img class='person-img' src='https://image.tmdb.org/t/p/original${person.profile_path}' alt='${person.name}'>
             <h1>${person.name}</h1>
@@ -29,7 +28,7 @@ function showPersonDetails(person){
             <p>Born: ${person.birthday} | ${person.place_of_birth}</p>
         </section>
     </header>
-    <main class='main-detail main-person'>
+    <main class='main main-detail main-person'>
         <section class='bio'>
         <h2 class='biography-person'>${person.biography}</h2>
         </section>

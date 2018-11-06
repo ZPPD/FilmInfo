@@ -26,14 +26,14 @@ function showMovieDetails(detail){
     if(movieType === 'movie'){
      details.innerHTML = `
         <header class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${detail.backdrop_path}')">
-        <section class='back-arrow'></section>
+        <a class='back-arrow' href='index.html'></a>
         <section class='details-title'>
             <h1>${detail.original_title}</h1>
             <p>${detail.status} | ${detail.original_language}</p>
             <p>${detail.genres[0].name}</p>
         </section>
         </header>
-        <main class='main-detail'>
+        <main class='main main-detail'>
             <section class='summary-detail'>
             <h2>Summary</h2>
             <p>${detail.overview}</p>
@@ -49,7 +49,7 @@ function showMovieDetails(detail){
             <p>${detail.genres[0].name} | ${detail.number_of_seasons} Seasons</p>
         </section>
         </header>
-        <main class='main-detail'>
+        <main class='main main-detail'>
             <section class='summary-detail'>
                 <h2>Summary</h2>
                 <p>${detail.overview}</p>

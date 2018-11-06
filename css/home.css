@@ -64,3 +64,22 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 }
+
+/* media queries
+@media (max-width: 1570px){
+    .table-flex{
+        flex-direction: column;
+    }
+    .table-flex > button{
+        margin-bottom:1rem;
+    }
+    .main{
+        margin: 150px 150px;
+    }
+}
+
+@media (max-width: 1400px){
+    .playing{
+        grid-template-columns: repeat(4, 1fr);
+    }
+} */
