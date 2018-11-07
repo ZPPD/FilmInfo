@@ -15,6 +15,10 @@
   .playing {
     grid-template-columns: repeat(4, 1fr);
   }
+  .main{
+    margin: 50px 50px;
+    max-width: 100%;
+  }
 }
 /* tablets and medium desktop desktop */
 @media (max-width: 1113px) {
@@ -41,21 +45,29 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
+    .navbar{
+        height: 100px;
+        font-size: 0.5rem;
+    }
   .main {
-    margin: 190px 20px;
+    margin: 100px 20px;
     padding: 0;
   }
   .main-detail,
   .main-person {
     margin: 50px 20px;
     padding: 1rem;
+    max-width: 100%;
   }
   .table-flex {
     margin: 1.5rem;
   }
   .playing {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .moviediv{
+      grid-template-columns: repeat(3, 1fr);
   }
   .bio > h2 {
     font-size: 1.1rem;
@@ -75,22 +87,28 @@
   .details-person > p {
     font-size: 1.1rem;
   }
-  .trailer {
-    display: inline-block;
-  }
-  .actors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
   .cast-img {
     width: 100px;
   }
   .cast-name {
     font-size: 1rem;
   }
-  .trailer-card {
-    width: 200px;
-    padding: 0;
+  .credit-flex{
+    display: inline-block;
+  }
+  .credit-img{
+    float: left;
+  }
+  .credit-overview{
+    line-height: 1.5;
+    font-size: 1.1rem;
+    
+  }
+  .searchMovie-img{
+    width: 150px;
+  }
+  .prev-page, .next-page{
+    width: 30%;
   }
 }
 
@@ -105,5 +123,11 @@
   .brand,
   .discover {
     padding: 0.3rem 1rem;
+  }
+  .credit-flex{
+    display: block;
+  }
+  .moviediv{
+    grid-template-columns: repeat(2, 1fr);
   }
 }

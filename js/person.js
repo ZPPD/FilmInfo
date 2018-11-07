@@ -128,7 +128,7 @@ function showPersonCredits(credits) {
         <h2 class='credit-title'>${credit.original_title}</h2>
         <p>${credit.release_date}</p>
         <h3 class='credit-character'>${credit.character}</h3>  
-        <p>${credit.overview}</p>
+        <p class='credit-overview'>${credit.overview}</p>
         </div>
         </div>
     `;
@@ -146,7 +146,7 @@ function showPersonCredits(credits) {
         <h2 class='credit-title'>${credit.name}</h2> 
         <p>${credit.first_air_date}</p>
         <h3 class='credit-character'>${credit.character}</h3>  
-        <p>${credit.overview}</p>
+        <p class='credit-overview'>${credit.overview}</p>
         </div>
         </div>
         `;

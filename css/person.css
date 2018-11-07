@@ -28,6 +28,11 @@
   border-radius: 5px;
   margin-bottom: 1rem;
 }
+.bio{
+  max-height: 250px;
+  display: flex;
+  overflow: auto;
+}
 
 .biography-person {
   color: #e5e5e5;
@@ -40,7 +45,7 @@
 .photoSection {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .photo-image {

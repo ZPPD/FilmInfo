@@ -105,7 +105,7 @@
 .trailers {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow: auto;
   /* justify-content: space-between; */
 }
 .cast-name {
