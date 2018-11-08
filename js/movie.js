@@ -18,15 +18,19 @@ function getMovie() {
 }
 
 function showMovieDetails(detail) {
-  const movieDetails = document.querySelector(".movie-details");
-  const details = document.createElement("div");
-  details.className = "details-movie-output";
+  // const movieDetails = document.querySelector(".movie-details");
+  // const details = document.createElement("div");
+  // details.className = "details-movie-output";
+  // get header
+  const header = document.querySelector('.header');
+  // get summary
+  const summary = document.querySelector('.summary-detail');
 
   const movieType = sessionStorage.getItem("movieType");
 
   if (movieType === "movie") {
-    details.innerHTML = `
-        <header class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${
+    header.innerHTML = `
+        <div class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${
           detail.backdrop_path
         }')">
         <a class='back-arrow' href='index.html'></a>
@@ -35,17 +39,17 @@ function showMovieDetails(detail) {
             <p>${detail.status} | ${detail.original_language}</p>
             <p>${detail.genres[0].name}</p>
         </section>
-        </header>
-        <main class='main main-detail'>
+        </div>`;
+
+        summary.innerHTML = `
             <section class='summary-detail'>
             <h2>Summary</h2>
             <p>${detail.overview}</p>
             </section>
-        </main>
     `;
   } else if (movieType === "tv") {
-    details.innerHTML = `
-        <header class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${
+    header.innerHTML = `
+        <div class='details-header' style="background-image: url('https://image.tmdb.org/t/p/original${
           detail.backdrop_path
         }')">
         <section class='back-arrow'></section>
@@ -56,17 +60,16 @@ function showMovieDetails(detail) {
       detail.number_of_seasons
     } Seasons</p>
         </section>
-        </header>
-        <main class='main main-detail'>
+        </div>`;
+        summary.innerHTML = `
             <section class='summary-detail'>
                 <h2>Summary</h2>
                 <p>${detail.overview}</p>
             </section>
-        </main>
     `;
   }
 
-  movieDetails.appendChild(details);
+  // movieDetails.appendChild(details);
 }
 
 //get cast
@@ -86,9 +89,11 @@ function getCast() {
 }
 //show Movie cast
 function showCast(cast) {
-  //make actors div
-  const actors = document.createElement("div");
-  actors.className = "actors";
+  // //make actors div
+  // const actors = document.createElement("div");
+  // actors.className = "actors";
+  // get actors
+  const actors = document.querySelector('.actors');
   //get main
   const main = document.querySelector(".main-detail");
   //get summary
@@ -118,7 +123,7 @@ function showCast(cast) {
             </div>       
     `;
     actors.appendChild(gridActors);
-    main.appendChild(actors);
+    // main.appendChild(actors);
   });
 }
 
@@ -139,9 +144,11 @@ function getTrailer() {
 }
 //show Movie cast
 function showTrailers(trailers) {
-  //make trailers div
-  const trailersDiv = document.createElement("div");
-  trailersDiv.className = "trailers";
+  // //make trailers div
+  // const trailersDiv = document.createElement("div");
+  // trailersDiv.className = "trailers";
+  // get trailers
+  const trailersDiv = document.querySelector('.trailers');
   //get main
   const main = document.querySelector(".main-detail");
   //get actors
@@ -168,7 +175,7 @@ function showTrailers(trailers) {
             </div>       
     `;
     trailersDiv.appendChild(gridTrailer);
-    main.appendChild(trailersDiv);
+    // main.appendChild(trailersDiv);
   });
 }
 

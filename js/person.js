@@ -16,12 +16,14 @@ function getPerson() {
 }
 
 function showPersonDetails(person) {
-  const personDetails = document.querySelector(".person-details");
-  const personDiv = document.createElement("div");
-  personDiv.className = "personDiv";
+  // const personDetails = document.querySelector(".person-details");
+  // const personDiv = document.createElement("div");
+  // personDiv.className = "personDiv";
+  const header = document.querySelector('.details-person-header');
+  const bio = document.querySelector('.bio');
 
-  personDiv.innerHTML = `
-    <header class='details-person-header'>
+  header.innerHTML = `
+    <div class='details-person-header'>
         <section class='details-title'>
             <img class='person-img' src='https://image.tmdb.org/t/p/original${
               person.profile_path
@@ -30,14 +32,11 @@ function showPersonDetails(person) {
             <p>${person.known_for_department}</p>
             <p>Born: ${person.birthday} | ${person.place_of_birth}</p>
         </section>
-    </header>
-    <main class='main main-detail main-person'>
-        <section class='bio'>
+    </div>`;
+    bio.innerHTML = `
         <h2 class='biography-person'>${person.biography}</h2>
-        </section>
-    </main>
     `;
-  personDetails.appendChild(personDiv);
+  // personDetails.appendChild(personDiv);
 }
 
 function getPhotos() {
@@ -53,9 +52,11 @@ function getPhotos() {
 }
 
 function showPhotos(photos) {
-  //make photo section
-  const photoSection = document.createElement("section");
-  photoSection.className = "photoSection";
+  // //make photo section
+  // const photoSection = document.createElement("section");
+  // photoSection.className = "photoSection";
+  // get photos section
+  const photoSection = document.querySelector('.photoSection');
   //get main
   const main = document.querySelector(".main-person");
   //get biography
@@ -77,7 +78,7 @@ function showPhotos(photos) {
         }'>
         `;
     photoSection.appendChild(photoCard);
-    main.appendChild(photoSection);
+    // main.appendChild(photoSection);
   });
 }
 
@@ -94,9 +95,11 @@ function getCredits() {
 }
 
 function showPersonCredits(credits) {
-  //make credits div
-  const creditsDiv = document.createElement("div");
-  creditsDiv.className = "creditsDiv";
+  // //make credits div
+  // const creditsDiv = document.createElement("div");
+  // creditsDiv.className = "creditsDiv";
+  // get credits div
+  const creditsDiv = document.querySelector('.creditsDiv');
   //get main
   const main = document.querySelector(".main-person");
   //get photo
@@ -152,7 +155,7 @@ function showPersonCredits(credits) {
         `;
     }
     creditsDiv.appendChild(cardCredit);
-    main.appendChild(creditsDiv);
+    // main.appendChild(creditsDiv);
   });
 }
 
