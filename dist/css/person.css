@@ -1,6 +1,6 @@
 /* person details styles */
 .details-person-header {
-  background-image: url(/img/theatre.jpeg);
+  background-image: url("/dist/img/theatre.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -28,7 +28,7 @@
   border-radius: 5px;
   margin-bottom: 1rem;
 }
-.bio{
+.bio {
   max-height: 250px;
   display: flex;
   overflow: auto;
