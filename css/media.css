@@ -15,7 +15,7 @@
   .playing {
     grid-template-columns: repeat(4, 1fr);
   }
-  .main{
+  .main {
     margin: 50px 50px;
     max-width: 100%;
   }
@@ -23,13 +23,13 @@
 /* tablets and medium desktop desktop */
 @media (max-width: 1113px) {
   .navbar {
-    grid-template-columns: 1fr;
+    display: flex;
     padding: 1rem;
   }
 
-  #searchForm {
+  /* #searchForm {
     margin: 0 auto;
-  }
+  } */
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -46,10 +46,10 @@
 }
 
 @media (max-width: 750px) {
-    .navbar{
-        height: 100px;
-        font-size: 0.5rem;
-    }
+  .navbar {
+    /* height: 100px; */
+    font-size: 0.5rem;
+  }
   .main {
     margin: 100px 20px;
     padding: 0;
@@ -66,8 +66,8 @@
   .playing {
     grid-template-columns: repeat(3, 1fr);
   }
-  .moviediv{
-      grid-template-columns: repeat(3, 1fr);
+  .moviediv {
+    grid-template-columns: repeat(3, 1fr);
   }
   .bio > h2 {
     font-size: 1.1rem;
@@ -93,21 +93,22 @@
   .cast-name {
     font-size: 1rem;
   }
-  .credit-flex{
+  .credit-flex {
     display: inline-block;
+    padding: 0.8rem;
   }
-  .credit-img{
+  .credit-img {
     float: left;
   }
-  .credit-overview{
+  .credit-overview {
     line-height: 1.5;
     font-size: 1.1rem;
-    
   }
-  .searchMovie-img{
+  .searchMovie-img {
     width: 150px;
   }
-  .prev-page, .next-page{
+  .prev-page,
+  .next-page {
     width: 30%;
   }
 }
@@ -120,14 +121,21 @@
   .footer {
     padding: 7rem 7rem;
   }
-  .brand,
-  .discover {
+  .brand {
     padding: 0.3rem 1rem;
   }
-  .credit-flex{
+
+  .credit-flex {
     display: block;
   }
-  .moviediv{
+  .moviediv {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .trailer-grid {
+    margin: 0;
+    margin-right: 1.1rem;
+  }
+  iframe {
+    width: 320px;
   }
 }

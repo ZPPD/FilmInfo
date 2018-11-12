@@ -19,11 +19,10 @@ function showPersonDetails(person) {
   // const personDetails = document.querySelector(".person-details");
   // const personDiv = document.createElement("div");
   // personDiv.className = "personDiv";
-  const header = document.querySelector('.details-person-header');
-  const bio = document.querySelector('.bio');
+  const header = document.querySelector(".details-person-header");
+  const bio = document.querySelector(".bio");
 
   header.innerHTML = `
-    <div class='details-person-header'>
         <section class='details-title'>
             <img class='person-img' src='https://image.tmdb.org/t/p/original${
               person.profile_path
@@ -31,9 +30,8 @@ function showPersonDetails(person) {
             <h1>${person.name}</h1>
             <p>${person.known_for_department}</p>
             <p>Born: ${person.birthday} | ${person.place_of_birth}</p>
-        </section>
-    </div>`;
-    bio.innerHTML = `
+        </section>`;
+  bio.innerHTML = `
         <h2 class='biography-person'>${person.biography}</h2>
     `;
   // personDetails.appendChild(personDiv);
@@ -56,7 +54,7 @@ function showPhotos(photos) {
   // const photoSection = document.createElement("section");
   // photoSection.className = "photoSection";
   // get photos section
-  const photoSection = document.querySelector('.photoSection');
+  const photoSection = document.querySelector(".photoSection");
   //get main
   const main = document.querySelector(".main-person");
   //get biography
@@ -99,7 +97,7 @@ function showPersonCredits(credits) {
   // const creditsDiv = document.createElement("div");
   // creditsDiv.className = "creditsDiv";
   // get credits div
-  const creditsDiv = document.querySelector('.creditsDiv');
+  const creditsDiv = document.querySelector(".creditsDiv");
   //get main
   const main = document.querySelector(".main-person");
   //get photo
