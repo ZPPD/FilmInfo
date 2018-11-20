@@ -1,6 +1,6 @@
 /* person details styles */
 .details-person-header {
-  background-image: url("/dist/img/theatre.jpeg");
+  background-image: url("../img/theatre.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
